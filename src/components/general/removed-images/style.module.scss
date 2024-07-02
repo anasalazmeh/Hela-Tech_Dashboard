@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image {
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain;
+}

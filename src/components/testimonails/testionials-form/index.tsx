@@ -1,0 +1,165 @@
+import { Button, Col, Divider, Row } from "antd";
+import { useNavigate, useParams } from "react-router-dom";
+import FieldBuilder from "../../form-components/field-builder";
+import MainForm from "../../form-components/main-form";
+import PageHeader from "../../general/page-header";
+import { useEffect, useContext, useState } from "react";
+import ConsultingContextProvider from "../../../context/consulting/provider";
+import ConsultingContext from "../../../context/consulting/context";
+import TestimonialContext from "../../../context/testimonial/context";
+import TestimonialContextProvider from "../../../context/testimonial/provider";
+
+const Form = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { loading, details, actions } = useContext(TestimonialContext);
+
+  // get details depends On id (getting from url)
+  useEffect(() => {
+    const getDetails = async () => {
+      await actions.getDetails(Number(id));
+    };
+
+    if (id) {
+      getDetails();
+    }
+  }, []);
+
+  return (
+    <>
+      <PageHeader
+        title={details ? "Update testimonial" : "Create testimonial"}
+        subTitle={
+          details ? "Updating the testimonial " : "Adding a new testimonial"
+        }
+        extra={[
+          <Button
+            key={0}
+            loading={loading.includes("create") || loading.includes("update")}
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Cancel
+          </Button>,
+          <Divider key={1} type="vertical" />,
+          <Button
+            loading={loading.includes("create") || loading.includes("update")}
+            form="service-form"
+            key={2}
+            htmlType="submit"
+            type="primary"
+          >
+            Save
+          </Button>,
+        ]}
+      />
+
+      <MainForm
+        formId="service-form"
+        title="Create testimonial"
+        subTitle="Adding a new testimonial"
+        onSubmit={async (data) => {
+          details
+            ? await actions.updateTestimonial(details?.id, data)
+            : await actions.createTestimonial(data);
+        }}
+        defaultValues={{ ...details }}
+      >
+        <Row gutter={[16, 8]}>
+          <Col xs={24} lg={12}>
+            <FieldBuilder
+              label="Full Name"
+              rules={{ required: true }}
+              name="Fullname"
+              input={{ type: "text" }}
+            />
+          </Col>
+          <Col xs={24} lg={12}>
+            <FieldBuilder
+              label="Language"
+              rules={{ required: true }}
+              name="lang"
+              width="large"
+              input={{
+                type: "select",
+                options: [
+                  { label: "Arabic", value: "ar" },
+                  { label: "English", value: "en" },
+                  { label: "Turkish", value: "tr" },
+                ],
+              }}
+            />
+          </Col>
+          <Col xs={24} lg={24}>
+            <FieldBuilder
+              label="Description"
+              rules={{ required: true }}
+              name="Description"
+              input={{ type: "text-area" }}
+            />
+          </Col>
+
+          <Col xs={24} lg={12}>
+            <FieldBuilder
+              label="Order"
+              rules={{ required: true, min: 1 }}
+              name="order"
+              input={{ type: "number" }}
+            />
+          </Col>
+
+          <Col xs={24} lg={12}>
+            <FieldBuilder
+              label="Rating"
+              rules={{ required: true, min: 1 }}
+              name="stars_rating"
+              input={{ type: "rating" }}
+            />
+          </Col>
+
+          <Col xs={24} lg={12}>
+            <FieldBuilder
+              label="Status"
+              rules={{ required: true }}
+              name="status"
+              width="large"
+              input={{
+                type: "select",
+                options: [
+                  { label: "Show", value: 1 },
+                  { label: "Hide", value: 0 },
+                ],
+              }}
+            />
+          </Col>
+
+          <Col xs={24} lg={24}>
+            {/* Image */}
+            <FieldBuilder
+              label="Image"
+              name="image"
+              rules={{ required: details ? false : true }}
+              input={{
+                type: "file",
+                url:
+                  details &&
+                  `${process.env.REACT_APP_BASE_IMAGE_URL}${details?.image}`,
+              }}
+            />
+          </Col>
+        </Row>
+      </MainForm>
+    </>
+  );
+};
+
+const TestimonialForm = () => {
+  return (
+    <TestimonialContextProvider>
+      <Form />
+    </TestimonialContextProvider>
+  );
+};
+
+export default TestimonialForm;

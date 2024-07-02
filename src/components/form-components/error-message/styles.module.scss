@@ -1,0 +1,10 @@
+.alert {
+  text-align: start;
+  color: red;
+  margin-bottom: 0;
+}
+
+.alert::before {
+  display: inline;
+  content: '⚠ ';
+}

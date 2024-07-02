@@ -1,0 +1,52 @@
+.statisticsCard {
+  text-align: center;
+  margin: 0.5rem 0;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 0 0.6rem #ddddddb3;
+  border-radius: 0.5rem;
+}
+
+.welcomeConatiner {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image {
+  /* width: 50%;
+  height: 50%; */
+  object-fit: contain;
+}
+
+.welcomeConatiner .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #fff;
+  display: block;
+  background: rgba(1, 1, 1, 0.8);
+  display: flex;
+}
+
+.title {
+  font-size: 5rem;
+  vertical-align: middle;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+
+  font-weight: bold;
+}
+
+.siteName {
+  background: linear-gradient(to right, #34c87c, gray);
+  -webkit-text-fill-color: transparent;
+  background-clip: inherit;
+  -webkit-background-clip: text;
+}

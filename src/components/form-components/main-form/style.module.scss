@@ -1,0 +1,28 @@
+.container {
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 0.125rem 0.25rem rgba(28, 43, 54, 0.075);
+  margin-top: -10px;
+}
+
+.children {
+  padding: 0.8rem;
+}
+.title {
+  font-size: 20px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-weight: 600;
+}
+.divider {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.formFooter {
+  display: flex;
+  padding: 0.5rem;
+  gap: 0.7rem;
+  justify-content: flex-end;
+}

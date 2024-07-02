@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #f5f5f5;
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  width: 400px;
+  box-shadow: 0 0.125rem 0.25rem rgba(28, 43, 54, 0.075);
+  background: #fff;
+}
+.footer {
+  margin-top: 1rem;
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

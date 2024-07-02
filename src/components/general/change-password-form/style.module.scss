@@ -1,0 +1,49 @@
+.alert {
+  color: red;
+}
+
+.alert::before {
+  display: inline;
+}
+
+.imagePicker {
+  width: 100%;
+}
+
+.imageIcon {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
+}
+
+.oldImageContainer {
+  position: relative;
+  height: 66px;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.mEnd1 {
+  margin-inline-end: 1rem;
+}
+
+.mx1 {
+  margin: 0 1rem;
+}
+
+.mx05 {
+  margin: 0 0.5rem;
+}
+
+.optionImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+}

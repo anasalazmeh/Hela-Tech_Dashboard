@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Cairo";
+  src: local("Cairo"),
+    url("./assets/fonts/Cairo-Regular.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo";
+}
+::selection {
+  background-color: #34c87c;
+  color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #34c87c;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 0.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #34c87ba5;
+}
+
+.ant-menu .ant-menu-inline.ant-menu-sub {
+  background: #1a1d2057 !important;
+}
+
+.ant-menu .ant-menu-sub.ant-menu-vertical {
+  background: #212529 !important;
+}
+
+.spinner-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
